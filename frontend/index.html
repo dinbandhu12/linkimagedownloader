@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Image Downloader</title>
+    <link rel="shortcut icon" href="/frontend/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body class="gradient-bg">
+    <div class="container">
+        <h1 class="heading">Bulk Image Downloader</h1>
+        
+        <div class="grid">
+            <div class="glass-effect">
+                <h2 class="subheading">Image Links</h2>
+                <textarea 
+                    id="links" 
+                    class="textarea"
+                    placeholder="Paste your image links here..."></textarea>
+            </div>
+            
+            <div class="glass-effect">
+                <h2 class="subheading">Download Settings</h2>
+                
+                <div class="input-group">
+                    <label class="label">Folder Name</label>
+                    <input 
+                        type="text" 
+                        id="folderName" 
+                        class="input"
+                        value="images">
+                </div>
+                
+                <button 
+                    id="downloadBtn"
+                    class="button"
+                    onclick="downloadImages()">
+                    Download Images
+                </button>
+
+                <!-- Progress Bar -->
+                <div id="progressBar">
+                    <div id="progressFill"></div>
+                </div>
+
+                <div id="downloadingStatus" class="hidden">
+                    <div class="text-center mb-4">
+                        <span id="currentCount">0</span>/<span id="totalCount">0</span> images
+                        <span class="loading-dots">downloading</span>
+                    </div>
+                </div>
+
+                <div id="completionStatus" class="text-center text-lg font-semibold hidden">
+                    Total <span id="finalCount">0</span> images downloaded
+                </div>
+
+                <!-- Failed Downloads -->
+                <div id="failedStatus" class="hidden glass-effect rounded-lg p-4 mt-4 text-sm">
+                    <h3 class="text-lg font-semibold mb-2">Failed to Download:</h3>
+                    <ul id="failedList" class="list-disc list-inside text-red-400"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/frontend/script.js"></script>
+</body>
+</html>
